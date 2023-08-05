@@ -32,7 +32,6 @@ github_username:  jekyll
 # Build settings
 theme: minima
 plugins:
-  - jekyll/vite
   - jekyll-seo-tag
   - jekyll-responsive-image
 
