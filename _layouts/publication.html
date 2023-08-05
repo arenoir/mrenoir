@@ -2,9 +2,9 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-    <link rel="stylesheet" href="/assets/styles/recognition-as-resilience.css">
+    <link rel="stylesheet" href={{"/assets/styles/modal.css" | relative_url}}>
+    <link rel="stylesheet" href={{"/assets/styles/recognition-as-resilience.css" | relative_url}}>
   </head>
-
 
   <body>
     {% if page.hero_image %}
@@ -26,6 +26,9 @@
       </div>
     </main>
 
+    <script type="text/javascript" src={{"/assets/scripts/recognition-as-resilience.js" | relative_url}}></script>
+
+    {% include modal.html %}
   </body>
 
 </html>

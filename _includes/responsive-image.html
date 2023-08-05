@@ -1,6 +1,6 @@
 {% capture srcset %}
     {% for i in resized %}
-        /{{ i.path }} {{ i.width }}w,
+        {{ i.path | relative_url}} {{ i.width }}w,
     {% endfor %}
 {% endcapture %}
-<img class="img-fluid" src="/{{ path }}" alt="{{ alt }}" srcset="{{ srcset | strip_newlines }}">
+<img class="img-fluid" src="{{path | relative_url}}" alt="{{alt}}" srcset="{{ srcset | strip_newlines }}">
