@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    {% vite_typescript_tag recognition-as-resilience %}
+    {% vite_stylesheet_tag recognition-as-resilience.css %}
+  </head>
+
+
+  <body>
+    {% if page.hero_image %}
+      <div class="hero">
+        {% responsive_image_block %}
+          path: {{ page.hero_image }}
+          {% if page.hero_title %}
+            alt: {{ page.hero_title }}
+          {% endif %}
+          {% if page.hero_title %}
+          title: {{ page.hero_title }}
+          {% endif %}
+        {% endresponsive_image_block %}
+      </div>
+    {% endif %}
+    <main>
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </main>
+
+  </body>
+
+</html>
