@@ -10,3 +10,8 @@ p {
   text-align: justify;
   text-justify: inter-word;
 }
+
+.references p {
+  text-align: left;
+  text-justify: initial;
+}
