@@ -29,6 +29,7 @@
   width: 80%;
   opacity: 1 !important;
   max-width: 1200px;
+  padding-bottom: 2rem;
 }
 
 /* Caption of Modal Image */
@@ -42,6 +43,7 @@
   font-weight: 700;
   font-size: 1em;
   margin-top: 32px;
+  min-height: 4rem;
 }
 
 /* Add Animation */
