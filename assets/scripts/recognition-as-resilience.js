@@ -1,4 +1,3 @@
-
 var _player;
 
 function viewImage(e) {
@@ -65,3 +64,47 @@ function showModal() {
   document.querySelector('body').classList.add('modal-visible');
   modal.style.display = "block";
 }
+
+function activateFootnotes() {
+  var wrapper = document.querySelector('.wrapper');
+
+  if (!wrapper) {
+    return;
+  }
+
+  var anchors = wrapper.querySelectorAll('a');
+
+  anchors.forEach(activateFootnoteLink);
+}
+
+function activateFootnoteLink(anchor) {
+  if (!typeof anchor.name === 'string') {
+    return;
+  }
+
+  if (!anchor.name.startsWith('_ftnref')) {
+    return;
+  }
+
+  if (!typeof anchor.href == 'string') {
+    return;
+  }
+
+  var name = anchor.href.split('#')[1];
+
+  if (!typeof name == 'string') {
+    return;
+  }
+
+  var content = document.getElementsByName(name);
+
+  if (!content) {
+    return;
+  }
+
+  var reference = content[0].closest('p');
+
+  new Opentip(anchor, reference.innerHTML, {fixed: true});
+}
+
+activateFootnotes();
