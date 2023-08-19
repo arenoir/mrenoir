@@ -9,11 +9,18 @@ module Jekyll
     def render(context)
       @context = context
       site = context.registers[:site]
+
+      responsive_image = context.registers[:responsive_image]
       image_url = compute_relative_url("/assets/images/#{@image_path}")
+
+      attributes = {
+        'path' => "assets/images/#{@image_path}".strip
+      }
+
       <<-STRING
         <a class="view-image" href="#{image_url}" onclick="return viewImage(event);">📷
           <span class="image-container" style="display:none">
-            <img src="#{image_url}" />
+            #{Jekyll::ResponsiveImage::Renderer.new(site, attributes).render_responsive_image}
           </span>
       </a>
       STRING
