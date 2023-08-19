@@ -34,7 +34,9 @@ body.modal-visible {
   opacity: 1 !important;
   max-width: 1200px;
   padding-bottom: 2rem;
+  text-align: center;
 }
+
 
 /* Caption of Modal Image */
 .modal-caption {

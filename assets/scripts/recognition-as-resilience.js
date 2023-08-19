@@ -41,19 +41,22 @@ function closeModal() {
 };
 
 function showVideoModal(element) {
-  var videoElement = element.querySelector('video');
+  var videoElement = element.querySelector('video-js');
   var modalContent = document.getElementById("modal-content");
   modalContent.innerHTML = videoElement.outerHTML;
 
   showModal();
 
   _player = videojs(
-    modalContent.querySelector('video'),
+    modalContent.querySelector('video-js'),
     {
       controls: true,
       autoplay: true,
       fluid: true
-    });
+    }
+  );
+
+  _player.addClass('video-js');
 }
 
 function showModal() {

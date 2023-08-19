@@ -15,9 +15,3 @@ p {
   text-align: left;
   text-justify: initial;
 }
-
-.view-video {
-  video {
-    display: hidden;
-  }
-}

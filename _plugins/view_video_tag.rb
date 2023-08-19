@@ -14,9 +14,9 @@ module Jekyll
       <<-STRING
         <a class="view-video" href="#{video_url}.mp4" onclick="return viewVideo(event);">🎥
           <span style="display:none">
-            <video controls autoplay="false" preload="true">
+            <video-js>
               <source src="#{video_url}.mp4" type="video/mp4">
-            </video>
+            </video-js>
           </span>
         </a>
       STRING
