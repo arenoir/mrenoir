@@ -1,21 +1,24 @@
 module Jekyll
-  class ViewImageTag < Liquid::Tag
+  class ViewVideoTag < Liquid::Tag
 
-    def initialize(tag_name, image_path, tokens)
+    def initialize(tag_name, video_path, tokens)
       super
-      @image_path = image_path
+      @video_path = video_path
     end
 
     def render(context)
       @context = context
       site = context.registers[:site]
-      image_url = compute_relative_url("/assets/images/#{@image_path}")
+      video_url = compute_relative_url("/assets/videos/#{@video_path}")
+
       <<-STRING
-        <a class="view-image" href="#{image_url}" onclick="return viewImage(event);">📷
-          <span class="image-container" style="display:none">
-            <img src="#{image_url}" />
+        <a class="view-video" href="#{video_url}" onclick="return viewVideo(event);">🎥
+          <span style="display:none">
+            <video controls autoplay="false" preload="true">
+              <source src="#{video_url}" type="video/mp4">
+            </video>
           </span>
-      </a>
+        </a>
       STRING
     end
 
@@ -46,4 +49,4 @@ module Jekyll
   end
 end
 
-Liquid::Template.register_tag('view_image', Jekyll::ViewImageTag)
+Liquid::Template.register_tag('view_video', Jekyll::ViewVideoTag)
