@@ -1,21 +1,21 @@
 module Jekyll
   class ViewVideoTag < Liquid::Tag
 
-    def initialize(tag_name, video_path, tokens)
+    def initialize(tag_name, filename, tokens)
       super
-      @video_path = video_path
+      @filename = filename
     end
 
     def render(context)
       @context = context
       site = context.registers[:site]
-      video_url = compute_relative_url("/assets/videos/#{@video_path}")
+      video_url = "https://storage.googleapis.com/fp-cdn/misc/mrenoir/#{@filename}".strip
 
       <<-STRING
-        <a class="view-video" href="#{video_url}" onclick="return viewVideo(event);">🎥
+        <a class="view-video" href="#{video_url}.mp4" onclick="return viewVideo(event);">🎥
           <span style="display:none">
             <video controls autoplay="false" preload="true">
-              <source src="#{video_url}" type="video/mp4">
+              <source src="#{video_url}.mp4" type="video/mp4">
             </video>
           </span>
         </a>
