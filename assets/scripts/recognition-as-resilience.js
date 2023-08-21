@@ -104,7 +104,7 @@ function activateFootnoteLink(anchor) {
 
   var reference = content[0].closest('p');
 
-  new Opentip(anchor, reference.innerHTML, {fixed: true});
+  new Opentip(anchor, reference.innerHTML, { fixed: true });
 }
 
 activateFootnotes();
