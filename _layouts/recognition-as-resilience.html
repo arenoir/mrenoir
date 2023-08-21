@@ -1,9 +1,11 @@
+{% assign cacheBust = site.time | date:'?v=%s' %}
+
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-    <link rel="stylesheet" href={{"/assets/styles/modal.css" | relative_url}}>
-    <link rel="stylesheet" href={{"/assets/styles/recognition-as-resilience.css" | relative_url}}>
+    <link rel="stylesheet" href={{"/assets/styles/modal.css" | relative_url | append: cacheBust }}>
+    <link rel="stylesheet" href={{"/assets/styles/recognition-as-resilience.css" | relative_url | append: cacheBust }}>
     <link href="https://vjs.zencdn.net/8.5.2/video-js.css" rel="stylesheet" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
     <script src="https://vjs.zencdn.net/8.5.2/video.min.js"></script>
-    <script type="text/javascript" src={{"/assets/scripts/opentip.js" | relative_url}}></script>
+    <script type="text/javascript" src={{"/assets/scripts/opentip.js" | relative_url | append: cacheBust }}></script>
   </head>
 
   <body>
@@ -34,7 +36,7 @@
       </div>
     </main>
 
-    <script type="text/javascript" src={{"/assets/scripts/recognition-as-resilience.js" | relative_url}}></script>
+    <script type="text/javascript" src={{"/assets/scripts/recognition-as-resilience.js" | relative_url | append: cacheBust}}></script>
 
     {% include modal.html %}
   </body>
